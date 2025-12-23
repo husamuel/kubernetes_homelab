@@ -21,8 +21,8 @@ data:
             - abbr: GH
               href: https://github.com/
   services.yaml: |
-    - My Second Group:
-        - My Second Service:
+    - My Firts Group:
+        - My First Service:
             href: http://localhost/
             description: Homepage is awesome
 
