@@ -4,9 +4,9 @@ metadata:
   name: homepage
   namespace: homepage
 spec:
-  type: NodePort  # Para expor fora do cluster
+  type: NodePort
   selector:
-    app: homepage
+    app.kubernetes.io/name: homepage
   ports:
     - port: 3000
       targetPort: 3000
