@@ -74,7 +74,7 @@ spec:
           image: ghcr.io/gethomepage/homepage:latest
           env:
             - name: HOMEPAGE_ALLOWED_HOSTS
-              value: "*"  # ou "homepage.my.network" se usares Ingress
+              value: "*"
           ports:
             - containerPort: 3000
           volumeMounts:
