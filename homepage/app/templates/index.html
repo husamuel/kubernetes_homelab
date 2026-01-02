@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cluster Home</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header>
+  <h1>Kubernetes Cluster</h1>
+</header>
+
+<main>
+  <div class="card">
+    <table>
+      <thead>
+        <tr>
+          <th>Node</th>
+          <th>CPU</th>
+          <th>Memória</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="nodes"></tbody>
+    </table>
+  </div>
+</main>
+
+<script>
+fetch("/api/cluster")
+  .then(r => r.json())
+  .then(data => {
+    const tbody = document.getElementById("nodes");
+    data.forEach(n => {
+      tbody.innerHTML += `
+        <tr>
+          <td>${n.name}</td>
+          <td>${n.cpu}</td>
+          <td>${n.memory}</td>
+          <td><span class="badge">OK</span></td>
+        </tr>`;
+    });
+  });
+</script>
+
+</body>
+</html>
